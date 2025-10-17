@@ -1,13 +1,13 @@
 # 📚 E-Book Store
 
 A **Django + Tailwind CSS** based web application for reading and managing digital books.  
-Users can sign up, sign in, browse available books, and download or read e-books online with a clean, responsive interface.
+Users can **sign up**, **sign in**, **browse books**, and **download e-books** with a clean, responsive interface.
 
 ---
 
 ## 🚀 Features
 
-- 🔐 User authentication (Sign In / Sign Up / Logout)  
+- 🔐 User Authentication (Sign In / Sign Up / Logout)  
 - 📘 Browse and view e-books  
 - 🔎 Search books by title or author  
 - 📥 Download e-books (PDF format)  
@@ -56,12 +56,42 @@ python manage.py migrate
 # 5️⃣ Start the development server
 python manage.py runserver
 
+ebook-store/
+├── manage.py
+├── requirements.txt
+├── db.sqlite3
+├── static/
+│   ├── css/
+│   ├── images/
+│   │   └── Screenshot (81).png
+│   └── js/
+├── templates/
+│   ├── base.html
+│   ├── book_list.html
+│   └── auth/
+│       ├── login.html
+│       └── signup.html
+├── ebook/
+│   ├── models.py
+│   ├── views.py
+│   ├── urls.py
+│   └── admin.py
+└── bookstore/
+    ├── settings.py
+    ├── urls.py
+    └── wsgi.py
 
-![Home Page](static/images/homepage.png)
-![Book Details](static/images/bookdet<img width="1366" height="768" alt="Screenshot (81)" src="https://github.com/user-attachments/assets/5acda094-3fd3-4ffd-8233-e83be81b48de" />
-ails.png)
+📷 Screenshot
+🖼️ Book List Page
+<img src="static/images/Screenshot%20(81).png" alt="Book List Page" width="800"/>
 
 
 ---
 
-Would you like me to **add a “Project Structure” section** (to show the Django app folder layout) or keep it simple like this?
+✅ **How to make the image visible on GitHub:**
+1. Move your image to this folder:  
+   `static/images/Screenshot (81).png`
+2. Commit & push both `README.md` and your image to GitHub.  
+   GitHub will automatically render the image inside your README.  
+
+Would you like me to make the README include a **“Login & Signup Page” screenshot** section too (you can add one later)?
