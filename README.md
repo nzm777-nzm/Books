@@ -83,7 +83,7 @@ ebook-store/
 
 📷 Screenshot
 🖼️ Book List Page
-<img width="1366" height="768" alt="Screenshot (81)" src="https://github.com/user-attachments/assets/3b3746d1-7a38-4414-8df0-7c6197e48c9d" />
+<img width="1366" height="768" alt="Screenshot (81)" src="https://github.com/user-attachments/assets/77b105e4-2fff-4a43-86ba-9f94089ad00d" />
 
 
 
