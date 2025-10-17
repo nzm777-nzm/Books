@@ -84,10 +84,3 @@ ebook-store/
 
 ---
 
-✅ **How to make the image visible on GitHub:**
-1. Move your image to this folder:  
-   `static/images/Screenshot (81).png`
-2. Commit & push both `README.md` and your image to GitHub.  
-   GitHub will automatically render the image inside your README.  
-
-Would you like me to make the README include a **“Login & Signup Page” screenshot** section too (you can add one later)?
