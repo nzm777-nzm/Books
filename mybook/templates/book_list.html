@@ -1,0 +1,128 @@
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <form action="{%url 'book_list'%}" role="search">
+       <div class="relative w-48 transition-all" style="margin-left: 42%;">
+    <input
+      type="text"
+      placeholder="Search..."
+      id="searchInput"
+      name="filter"
+      class="w-full py-2 pl-10 pr-4 text-gray-700 bg-white border rounded-full outline-none transition-all border-gray-300"
+    />
+    <div class="absolute inset-y-0 left-0 flex items-center pl-3">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    </div>
+  </div>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const searchContainer = searchInput.parentElement;
+    const searchIcon = searchContainer.querySelector('svg');
+
+    searchInput.addEventListener('focus', () => {
+      searchContainer.classList.add('w-64', 'bg-white');
+      searchContainer.classList.remove('w-48');
+      searchInput.classList.remove('border-gray-300');
+      searchInput.classList.add('border-blue-500');
+      searchIcon.classList.add('text-blue-500');
+      searchIcon.classList.remove('text-gray-400');
+    });
+
+    searchInput.addEventListener('blur', () => {
+      searchContainer.classList.add('w-48');
+      searchContainer.classList.remove('w-64', 'bg-white');
+      searchInput.classList.add('border-gray-300');
+      searchInput.classList.remove('border-blue-500');
+      searchIcon.classList.add('text-gray-400');
+      searchIcon.classList.remove('text-blue-500');
+    });
+  </script>
+  </form>
+
+ <a href="{%url 'signout' %}">
+  <div class="flex flex-row items-center justify-start gap-4">
+    <button class="rounded-2xl bg-red-600 px-4 py-2 font-bold leading-none text-white">{{request.user}}Logout</button>
+</div>
+ </a>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- source: https://github.com/mfg888/Responsive-Tailwind-CSS-Grid/blob/main/index.html -->
+
+<div class="text-center p-10">
+    <h1 class="font-bold text-4xl mb-4">Read And Enjoy</h1>
+    <h1 class="text-3xl">Open Book Store</h1>
+</div>
+
+<!-- ✅ Grid Section - Starts Here 👇 -->
+<section id="Projects"
+    class="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
+
+    <!--   ✅ Product card 1 - Starts Here 👇 -->
+    {%for b in data%}
+    <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+        <a href="{%url 'book_detail' b.id%}">
+
+            {%if b.picture%}
+
+            <img src="{{b.picture.url}}"
+                    alt="..." class="h-80 w-72 object-cover rounded-t-xl" />
+
+            {%endif%}
+            <div class="px-4 py-3 w-72">
+                <span class="text-gray-400 mr-3 uppercase text-xs">{{b.name}}</span>
+                <p class="text-lg font-bold text-black truncate block capitalize">{{b.price}}</p>
+                <div class="flex items-center">
+                    <p class="text-lg font-semibold text-black cursor-auto my-3"></p>
+                    <del>
+                        <!-- <p class="text-sm text-gray-600 cursor-auto ml-2">{{b.price}}</p> -->
+                    </del>
+                    <span>
+                       <a href="{%url 'book-delete' b.id%}">
+                         <button type="reset" style="color: rgb(230, 12, 12);">remove</button>
+                       </a>
+                    </span>
+                    <span class="p-5">
+                        <a href="{%url 'book-update' b.id%}">
+                            <button type="submit" style="color: forestgreen;">update</button>
+                        </a>
+                    </span>
+                    <div class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                        
+                            fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z" />
+                            <path
+                                d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+                        </svg></div>
+                </div>
+            </div>
+ 
+        </a>
+    </div>
+    {%endfor%}
+    <!--   🛑 Product card 1 - Ends Here  -->
+
+    
+</section>
+
+<!-- 🛑 Grid Section - Ends Here -->
+
+
+<!-- credit -->
+<div class="text-center py-10 px-10">
+    <h2 class="font-bold text-2xl md:text-4xl mb-4">Thanks to <a href="https://unsplash.com/@nixcreative"
+            class="underline font-black">Tyler Nix</a> for those AMAZING product images!</h2>
+</div>
+
+
+<!-- Support Me 🙏🥰 -->
+<script src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"></script>
+<script>
+    kofiWidgetOverlay.draw('mohamedghulam', {
+            'type': 'floating-chat',
+            'floating-chat.donateButton.text': 'Support me',
+            'floating-chat.donateButton.background-color': '#323842',
+            'floating-chat.donateButton.text-color': '#fff'
+        });
+</script>
